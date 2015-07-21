@@ -23,6 +23,16 @@ void buttonSetup(){
 
 }
 
+void keyPressed() {
+    if (key == '1') {
+        map.mapDisplay.setProvider(provider1);
+    } else if (key == '2') {
+        map.mapDisplay.setProvider(provider2);
+    } else if (key == '3') {
+        map.mapDisplay.setProvider(provider3);
+    }
+}
+
 void controlEvent(ControlEvent theEvent) {
 
   if (theEvent.isController()) { 

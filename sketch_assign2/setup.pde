@@ -2,9 +2,15 @@ void setup() {
   size(800, 600, P2D);
   smooth();
   buttonSetup();
+  
+  // define our map providors
+  provider1 = new Google.GoogleMapProvider();
+  provider2 = new Microsoft.AerialProvider();
+  provider3 = new OpenStreetMap.OpenStreetMapProvider();
+ 
 
   // Create interactive map centered around London
-  map = new UnfoldingMap(this, new Google.GoogleMapProvider());
+  map = new UnfoldingMap(this, provider1);
   //map.zoomAndPanTo(11, new Location(53.3478, -6.2597));
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
@@ -19,14 +25,18 @@ void setup() {
   
   debugDisplay = new DebugDisplay(this, map);
   
+  PImage compassImg = loadImage("ui/compass_white.png");
+  compass = new CompassUI(this, map, compassImg, width - 35, height - 140);
+  barscale = new BarScaleUI(this, map, width - 35, height - 10);
+  
   println("reading data");
   Table busDataCSV = loadTable(busDataFile);
   println("data in");
   busDataCSV.sortReverse(5);
   println("sorted");
-  for (TableRow busRow : busDataCSV.rows()) {
-    println(busRow.getInt(5));
-  }
+  //for (TableRow busRow : busDataCSV.rows()) {
+    //println(busRow.getInt(5));
+  //}
   /*
   
   //println(busDataCSV.getColumnTypes() );

@@ -2,10 +2,13 @@ void draw() {
   // Draw map and darken it a bit
   map.draw();
   
+  
+  compass.draw();
+  barscale.draw();
   if (debug) {
   debugDisplay.draw();
   }
-  //map.zoomAndPanTo(dublinLocation, 12);
+  
   
   /*
   fill(0, 200);
