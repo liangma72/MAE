@@ -1,5 +1,5 @@
 void setup() {
-  size(800, 600, P2D);
+  size(1000, 600, P2D);
   smooth();
   buttonSetup();
   
@@ -20,13 +20,13 @@ void setup() {
   
   map.setPanningRestriction(dublinLocation, maxPanningDistance);
   map.setZoomRange(11, 15);
-  map.zoomAndPanTo(dublinLocation, 12);
+  map.zoomAndPanTo(dublinLocation, 11);
   
   
   debugDisplay = new DebugDisplay(this, map);
   
   PImage compassImg = loadImage("ui/compass_white.png");
-  compass = new CompassUI(this, map, compassImg, width - 35, height - 140);
+  compass = new CompassUI(this, map, compassImg, width - 45, height - 140);
   barscale = new BarScaleUI(this, map, width - 35, height - 10);
   
   println("reading data");

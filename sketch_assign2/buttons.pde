@@ -1,22 +1,22 @@
 void buttonSetup(){
   
-  int zoomBoxLocX = 750;
+  int zoomBoxLocX = width - 55;
   
-  int zoomBoxLocY = 500;
+  int zoomBoxLocY = height - 100;
   cp5 = new ControlP5(this);
   
   // Map zoom/reset buttons
     
-     cp5.addBang("in", zoomBoxLocX + 5, zoomBoxLocY, 20, 20)
+     cp5.addBang("in", zoomBoxLocX, zoomBoxLocY, 20, 20)
      .setLabel("+")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
     
-     cp5.addBang("out", zoomBoxLocX + 5, zoomBoxLocY + 20, 20, 20)
+     cp5.addBang("out", zoomBoxLocX, zoomBoxLocY + 20, 20, 20)
     .setLabel("-")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
     
     
-      cp5.addBang("home", zoomBoxLocX, zoomBoxLocY + 50, 30, 20)
+      cp5.addBang("home", zoomBoxLocX - 5, zoomBoxLocY + 50, 30, 20)
      .setLabel("Reset")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
   
