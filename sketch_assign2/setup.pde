@@ -5,12 +5,12 @@ void setup() {
   
   // define our map providors
   provider1 = new Google.GoogleMapProvider();
-  provider2 = new Microsoft.AerialProvider();
+  provider2 = new ThunderforestProvider.Transport();
   provider3 = new OpenStreetMap.OpenStreetMapProvider();
  
 
   // Create interactive map centered around London
-  map = new UnfoldingMap(this, provider1);
+  map = new UnfoldingMap(this, provider2);
   //map.zoomAndPanTo(11, new Location(53.3478, -6.2597));
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
@@ -28,7 +28,7 @@ void setup() {
   PImage compassImg = loadImage("ui/compass_white.png");
   compass = new CompassUI(this, map, compassImg, width - 45, height - 140);
   barscale = new BarScaleUI(this, map, width - 35, height - 10);
-  
+
   println("reading data");
   Table busDataCSV = loadTable(busDataFile);
   println("data in");
@@ -65,3 +65,13 @@ void setup() {
   println("Loaded ");
 }
 
+/*
+void buslines(){
+List<Feature> transitLines = GeoJSONReader.loadData(this, "busnetwork.json");
+//List<Marker> transitMarkers = new ArrayList<Marker>();
+
+List<Marker> markers = MapUtils.createSimpleMarkers(transitLines);
+map.addMarkers(markers);
+
+   // map.addMarkers(transitMarkers);
+} */

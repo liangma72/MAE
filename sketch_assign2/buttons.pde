@@ -1,8 +1,10 @@
 void buttonSetup(){
   
   int zoomBoxLocX = width - 55;
-  
   int zoomBoxLocY = height - 100;
+  
+  int radioLocX = width - 100;
+  int radioLocY = height - 400;
   cp5 = new ControlP5(this);
   
   // Map zoom/reset buttons
@@ -20,18 +22,30 @@ void buttonSetup(){
      .setLabel("Reset")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
   
-
+    r = cp5.addRadioButton("radioButton")
+         .setPosition(radioLocX,radioLocY)
+         .setSize(40,20)
+         .setColorForeground(color(120))
+         .setColorActive(color(255))
+         .setColorLabel(color(255))
+         .setItemsPerRow(1)
+         .setSpacingColumn(50)
+         .addItem("Google",1)
+         .addItem("OSM Transit",2)
+         .addItem("OSM",3)
+         .activate(1)
+         ;
+     
+     for(Toggle t:r.getItems()) {
+       t.captionLabel().setColorBackground(color(255,80));
+       t.captionLabel().style().moveMargin(-7,0,0,-3);
+       t.captionLabel().style().movePadding(7,0,0,3);
+       t.captionLabel().style().backgroundWidth = 50;
+       t.captionLabel().style().backgroundHeight = 13;
+     }
 }
 
-void keyPressed() {
-    if (key == '1') {
-        map.mapDisplay.setProvider(provider1);
-    } else if (key == '2') {
-        map.mapDisplay.setProvider(provider2);
-    } else if (key == '3') {
-        map.mapDisplay.setProvider(provider3);
-    }
-}
+
 
 void controlEvent(ControlEvent theEvent) {
 
@@ -49,5 +63,15 @@ void controlEvent(ControlEvent theEvent) {
     }if (theEvent.controller().name()=="home") {
       map.zoomAndPanTo(dublinLocation, 12);
     }
+    
   }
+  
+  if(theEvent.isFrom(r)) {
+    switch((int)theEvent.getValue()){
+    case(1) : map.mapDisplay.setProvider(provider1);
+    case(2) : map.mapDisplay.setProvider(provider2);
+    case(3) : map.mapDisplay.setProvider(provider3);
+   
+  }
+}
 }
