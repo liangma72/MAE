@@ -3,8 +3,8 @@ void buttonSetup(){
   int zoomBoxLocX = width - 55;
   int zoomBoxLocY = height - 100;
   
-  int radioLocX = width - 100;
-  int radioLocY = height - 400;
+  int radioLocX = width - 90;
+  int radioLocY = height - 250;
   cp5 = new ControlP5(this);
   
   // Map zoom/reset buttons
@@ -24,7 +24,7 @@ void buttonSetup(){
   
     r = cp5.addRadioButton("radioButton")
          .setPosition(radioLocX,radioLocY)
-         .setSize(40,20)
+         .setSize(20,20)
          .setColorForeground(color(120))
          .setColorActive(color(255))
          .setColorLabel(color(255))
@@ -37,7 +37,7 @@ void buttonSetup(){
          ;
      
      for(Toggle t:r.getItems()) {
-       t.captionLabel().setColorBackground(color(255,80));
+       t.captionLabel().setColorBackground(color(255,0));
        t.captionLabel().style().moveMargin(-7,0,0,-3);
        t.captionLabel().style().movePadding(7,0,0,3);
        t.captionLabel().style().backgroundWidth = 50;
@@ -67,10 +67,12 @@ void controlEvent(ControlEvent theEvent) {
   }
   
   if(theEvent.isFrom(r)) {
+    println(theEvent.getValue());
     switch((int)theEvent.getValue()){
-    case(1) : map.mapDisplay.setProvider(provider1);
-    case(2) : map.mapDisplay.setProvider(provider2);
-    case(3) : map.mapDisplay.setProvider(provider3);
+    case(1) : map.mapDisplay.setProvider(provider1);break;
+    case(2) : map.mapDisplay.setProvider(provider2);break;
+    case(3) : map.mapDisplay.setProvider(provider3);break;
+    default: map.mapDisplay.setProvider(provider2);break;
    
   }
 }

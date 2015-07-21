@@ -37,8 +37,10 @@ void draw() {
 }
 
 void overlays(){
+  fill(100);
+  rect(width - 100, height - 260, 200, 200, 4, 0 ,0 ,0);
   fill(51);
-  rect(width - 100, height - 180, 200, 200, 4, 0 ,0 ,0);
+  rect(width - 100, height - 180, 200, 200, 0, 0 ,0 ,0);
   fill(100);
   rect(width - 100, height - 22, 200, 200);
 }
