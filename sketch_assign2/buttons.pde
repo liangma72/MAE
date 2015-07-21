@@ -5,14 +5,21 @@ void buttonSetup(){
   int zoomBoxLocY = 500;
   cp5 = new ControlP5(this);
   
-     cp5.addBang("out", zoomBoxLocX + 5, zoomBoxLocY + 40, 20, 20)
+  // Map zoom/reset buttons
+    
+     cp5.addBang("in", zoomBoxLocX + 5, zoomBoxLocY, 20, 20)
+     .setLabel("+")
+    .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
+    
+     cp5.addBang("out", zoomBoxLocX + 5, zoomBoxLocY + 20, 20, 20)
     .setLabel("-")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
     
-     cp5.addBang("in", zoomBoxLocX + 5, zoomBoxLocY + 5, 20, 20)
-     .setLabel("+")
+    
+      cp5.addBang("home", zoomBoxLocX, zoomBoxLocY + 50, 30, 20)
+     .setLabel("Reset")
     .align(ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER, ControlP5.CENTER);
-
+  
 
 }
 
@@ -25,9 +32,12 @@ void controlEvent(ControlEvent theEvent) {
 
     if (theEvent.controller().name()=="out") {
       map.zoomLevelOut();
+      
     }
     if (theEvent.controller().name()=="in") {
       map.zoomLevelIn();
+    }if (theEvent.controller().name()=="home") {
+      map.zoomAndPanTo(dublinLocation, 12);
     }
   }
 }

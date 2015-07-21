@@ -8,12 +8,16 @@ void setup() {
   //map.zoomAndPanTo(11, new Location(53.3478, -6.2597));
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
-  Location dublinLocation = new Location(53.345436, -6.282783);
-  map.zoomAndPanTo(dublinLocation, 12);
-  float maxPanningDistance = 15; // in km
+  
+  
+  float maxPanningDistance = 20; // in km
   
   map.setPanningRestriction(dublinLocation, maxPanningDistance);
-  map.setZoomRange(12, 15);
+  map.setZoomRange(11, 15);
+  map.zoomAndPanTo(dublinLocation, 12);
+  
+  
+  debugDisplay = new DebugDisplay(this, map);
   
   println("reading data");
   Table busDataCSV = loadTable(busDataFile);
