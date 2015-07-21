@@ -4,7 +4,7 @@ void setup() {
 
   // Create interactive map centered around London
   map = new UnfoldingMap(this);
-  map.zoomAndPanTo(12, new Location(51.500, -0.118));
+  map.zoomAndPanTo(9, new Location(53.3478, -6.2597));
   MapUtils.createDefaultEventDispatcher(this, map);
   map.setTweening(true);
   
