@@ -2,6 +2,8 @@ void setup() {
   size(1000, 600, P2D);
   smooth();
   buttonSetup();
+  main = loadFont("SansSerif-16.vlw");
+  small = loadFont("SansSerif-12.vlw");
   
   // define our map providors
   provider1 = new Google.GoogleMapProvider();
@@ -27,8 +29,17 @@ void setup() {
   
   PImage compassImg = loadImage("ui/compass_white.png");
   compass = new CompassUI(this, map, compassImg, width - 45, height - 140);
-  barscale = new BarScaleUI(this, map, width - 35, height - 10);
 
+  barscale = new BarScaleUI(this, map, width - 35, height - 10);
+  
+  /*
+  tuioCursorHandler = new TuioCursorHandler(this, map);
+    EventDispatcher eventDispatcher = new EventDispatcher();
+    eventDispatcher.addBroadcaster(tuioCursorHandler);
+    eventDispatcher.register(map, "pan");
+    eventDispatcher.register(map, "zoom");
+
+*/
   println("reading data");
   Table busDataCSV = loadTable(busDataFile);
   println("data in");
