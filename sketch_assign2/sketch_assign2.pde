@@ -17,7 +17,6 @@ import java.util.Date.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
-import TUIO.*;
 
 // set to true to show debug window and extra log messages
 Boolean debug = true;
@@ -30,14 +29,14 @@ BarScaleUI barscale;
 PFont main;
 PFont small;
 long time;
-
+long timeChange = 60000000L;
+float speed = 1;
 
 
 String busDataFile = "siri.20130129.csv";
 
 UnfoldingMap map;
 DebugDisplay debugDisplay;
-//TuioCursorHandler tuioCursorHandler;
 Location dublinLocation = new Location(53.347, -6.266);
 
 ArrayList<Bus> busList = new ArrayList();

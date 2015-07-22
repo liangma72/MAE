@@ -35,6 +35,14 @@ void buttonSetup(){
          .addItem("OSM",3)
          .activate(1)
          ;
+         
+    cp5.addSlider("Playback Speed")
+     .setPosition(10,height - 35)
+     .setSize(200,20)
+     .setRange(-200,200)
+     .setNumberOfTickMarks(17)
+     .setValue(100)
+     ;
      
      for(Toggle t:r.getItems()) {
        t.captionLabel().setColorBackground(color(255,0));
@@ -64,6 +72,10 @@ void controlEvent(ControlEvent theEvent) {
       map.zoomAndPanTo(dublinLocation, 12);
     }
     
+  }
+  if (theEvent.isFrom("Playback Speed")) {
+    speed = (theEvent.controller().value());
+  
   }
   
   if(theEvent.isFrom(r)) {
