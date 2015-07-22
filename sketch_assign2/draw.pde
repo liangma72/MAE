@@ -16,16 +16,15 @@ void draw() {
 
   // calculate and set the time based on the time slider
   float nextTime = timeChange  * speed / 100;
-
+  //println(time);
   time += nextTime;
 
 
-  // unfolding debug screen
+if (dublin){
 
-    //debugDisplay.draw();
+  } else {
 
-  
-  // display current time
+  }
   
 }
 

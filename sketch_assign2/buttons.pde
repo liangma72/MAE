@@ -75,7 +75,7 @@ void controlEvent(ControlEvent theEvent) {
     if (theEvent.controller().name()=="in") {
       map.zoomLevelIn();
     }if (theEvent.controller().name()=="home") {
-      map.zoomAndPanTo(dublinLocation, 12);
+      map.zoomAndPanTo(mapLocation, 12);
     }
     
   }

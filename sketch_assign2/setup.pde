@@ -14,7 +14,11 @@ void setup() {
 
   //time = 1359417602 * 10000000;
 
+  birdarea();
   
+  
+  println(birdlat + "" + birdlong);
+  Location birdLocation = new Location(birdlat, birdlong);
   // define our map providors
   provider1 = new Google.GoogleMapProvider();
   provider2 = new ThunderforestProvider.Transport();
@@ -28,9 +32,19 @@ void setup() {
   // settting for map
   map.setTweening(true);
   float maxPanningDistance = 20; // in km
-  map.setPanningRestriction(dublinLocation, maxPanningDistance);
-  map.setZoomRange(11, 15);
-  map.zoomAndPanTo(dublinLocation, 11);
+  
+  if (dublin){
+  mapLocation = dublinLocation;
+  } else {
+    mapLocation = birdLocation;
+    time = 1246349909 * 10000000;
+    birds();
+    birdpos();
+  }
+  
+  map.setPanningRestriction(mapLocation, maxPanningDistance);
+    map.setZoomRange(11, 15);
+    map.zoomAndPanTo(mapLocation, 11);
   
   
   //Unfolding Map Elements

@@ -20,6 +20,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
+
+// for birds file
+import de.bezier.data.sql.*;
+SQLite db;
+float birdlat;
+float birdlong;
+
 // set to true to show debug window and extra log messages
 Boolean debug = false;
 
@@ -47,11 +54,17 @@ RadioButton r;
 UnfoldingMap map;
 DebugDisplay debugDisplay;
 Location dublinLocation = new Location(53.347, -6.266);
+Location mapLocation;
 AbstractMapProvider provider1;
 AbstractMapProvider provider2;
 AbstractMapProvider provider3;
 CompassUI compass;
 BarScaleUI barscale;
+ArrayList<Integer> birds = new ArrayList();
+
+
+
+boolean dublin = false;
 
 
 
